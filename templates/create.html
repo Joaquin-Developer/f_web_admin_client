@@ -44,8 +44,39 @@
         <div class="title">
             <h2>Create</h2>
         </div>
+        <form>
+            <div class="row">
+                <div class="col">
+                    Tour show:
+                    <input id="input_tour_show" type="text" class="form-control"
+                        placeholder="Example: Sounds Good Tour 2022">
+                </div>
+                <div class="col">
+                    Scenary:
+                    <input id="input_scenary" type="text" class="form-control" placeholder="Example: The Forum">
+                </div>
+                <div class="col">
+                    Place:
+                    <input id="input_place" type="text" class="form-control" placeholder="Example: Inglewood, CA, USA">
+                </div>
+                <div class="col">
+                    Show date:
+                    <div class="input-group date" data-provide="datepicker">
+                        <input type="date" id="show_date" class="form-control" value="2022-01-01">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <button id="btn_new_date" class="btn btn-secondary" type="submit">Guardar</button>
+            </div><br>
+        </form>
     </div>
-
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/create.js"></script>
 </body>
 
 </html>

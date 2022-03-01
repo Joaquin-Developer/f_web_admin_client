@@ -21,7 +21,7 @@ class API {
             },
             body: JSON.stringify({
                 showDate: showDate,
-                show: showName,
+                showName: showName,
                 scenary: scenary,
                 place: place
             })
