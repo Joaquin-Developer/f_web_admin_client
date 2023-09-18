@@ -2,7 +2,7 @@
 class API {
 
     static get url() {
-        return "http://localhost:5000/api/v2/"
+        return "http://localhost:5016/api/v2/"
     }
 
     static async getTourDates(all = false) {
