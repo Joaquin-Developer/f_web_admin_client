@@ -45,41 +45,36 @@
     </nav>
     <div class="container">
         <div class="title">
-            <h2>Create</h2>
+            <h2>Edit eligible songs by tour:</h2>
         </div>
-        <form>
-            <div class="row">
-                <div class="col">
-                    Tour show:
-                    <input id="input_tour_show" type="text" class="form-control"
-                        placeholder="Example: Sounds Good Tour 2022">
-                </div>
-                <div class="col">
-                    Scenary:
-                    <input id="input_scenary" type="text" class="form-control" placeholder="Example: The Forum">
-                </div>
-                <div class="col">
-                    Place:
-                    <input id="input_place" type="text" class="form-control" placeholder="Example: Inglewood, CA, USA">
-                </div>
-                <div class="col">
-                    Show date:
-                    <div class="input-group date" data-provide="datepicker">
-                        <input type="date" id="show_date" class="form-control">
-                        <div class="input-group-addon">
-                            <span class="glyphicon glyphicon-th"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="d-grid gap-2">
-                <button id="btn_new_date" class="btn btn-secondary" type="submit">Guardar</button>
-            </div><br>
-        </form>
+        <label for="comboBox" class="form-label">Evento:</label>
+        <select class="form-select" id="comboBoxTourEvents">
+            <option selected>Select...</option>
+        </select>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Album</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Enabled</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+
+        <div class="d-grid gap-2">
+            <button id="btn_save_changes" class="btn btn-secondary" type="submit">Save Changes</button>
+        </div>
+        <br><br> <!-- mejorar esto! -->
     </div>
+
     <script src="js/utils.js"></script>
     <script src="js/api.js"></script>
-    <script src="js/create.js"></script>
+    <script src="js/tourVote.js"></script>
+    <script src="js/tourVoteApi.js"></script>
 </body>
 
 </html>
