@@ -12,7 +12,7 @@ class API {
         return await (await fetch(`${API.url}/show_dates`)).json()
     }
 
-    static async createShow(showDate, showName, scenary, place) {
+    static async createShow(tourId, cityId, showDate, scenary) {
 
         const resp = await fetch(`${API.url}/show_dates`, {
             method: "PUT",
@@ -20,10 +20,10 @@ class API {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
+                tourId,
+                cityId,
                 showDate,
-                showName,
-                scenary,
-                place
+                scenary
             })
         })
         return await resp.json()
@@ -56,15 +56,26 @@ class API {
         return await resp.json()
     }
 
-    static async deleteById(id) {
+    static async deleteById(showId) {
         const resp = await fetch(`${API.url}/show_dates`, {
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ showId: id })
+            body: JSON.stringify({ showId })
         })
         return await resp.json()
+    }
+
+    static async cacheToursData() {
+        let data = sessionStorage.getItem("tours_data")
+
+        if (!data) {
+            data = await (await fetch(`${API.url}/tours`)).json()
+            sessionStorage.setItem("tours_data", JSON.stringify(data))
+        }
+
+        return JSON.parse(data)
     }
 
     static async cacheCountriesData() {
@@ -78,24 +89,24 @@ class API {
         return JSON.parse(data)
     }
 
-    static async getStatesByCountry(country) {
+    static async getStatesByCountry(countryId) {
         const resp = await fetch(`${API.url}/all_states_by_country`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ country })
+            body: JSON.stringify({ countryId })
         })
         return await resp.json()
     }
 
-    static async getCitiesByCountryState(country, state) {
+    static async getCitiesByCountryState(countryId, stateId) {
         const resp = await fetch(`${API.url}/all_cities_by_country_state`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ country, state })
+            body: JSON.stringify({ countryId, stateId })
         })
         return await resp.json()
     }
