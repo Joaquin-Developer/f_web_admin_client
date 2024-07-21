@@ -48,64 +48,24 @@
     </nav>
     <div class="container">
         <div class="title">
-            <h2>Update/remove</h2>
+            <h2>Create Tour</h2>
         </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">DB ID</th>
-                    <th scope="col">Show date</th>
-                    <th scope="col">Tour show</th>
-                    <th scope="col">Scenary</th>
-                    <th scope="col">City</th>
-                    <th scope="col">State</th>
-                    <th scope="col">Country</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody id="tbody"></tbody>
-        </table>
-        <br>
-        <form id="form_edit_tour" name="" class="none">
-            <h3>Editar:</h3>
-            <!-- <div id="errorAlert" class="alert alert-danger none" role="alert"></div>
-            <div id="successAlert" class="alert alert-success none" role="alert"></div> -->
+        <form>
             <div class="row">
-                <!-- <div class="col">
-                    Tour show:<input id="input_tour_show" type="text" class="form-control">
-                </div> -->
                 <div class="col">
-                    Scenary:<input id="input_scenary" type="text" class="form-control">
-                </div>
-                <!-- <div class="col">
-                    City:<input id="input_city" type="text" class="form-control">
-                </div>
-                <div class="col">
-                    State:<input id="input_state" type="text" class="form-control">
-                </div>
-                <div class="col">
-                    Country:<input id="input_country" type="text" class="form-control">
-                </div> -->
-                <div class="col">
-                    Show date:
-                    <div class="input-group date" data-provide="datepicker">
-                        <input type="date" id="show_date" class="form-control">
-                        <div class="input-group-addon">
-                            <span class="glyphicon glyphicon-th"></span>
-                        </div>
-                    </div>
+                    Tour name:
+                    <input id="input_tour_name" type="text" class="form-control"
+                        placeholder="Example: Europe Tour 2024">
                 </div>
             </div>
             <div class="d-grid gap-2">
-                <button id="btn_update_show" class="btn btn-secondary" type="submit">Modificar</button>
+                <button id="btn_new_tour" class="btn btn-secondary" type="submit">Guardar</button>
             </div><br>
         </form>
     </div>
-
     <script src="/js/utils.js"></script>
     <script src="/js/api.js"></script>
-    <script src="/js/update.js"></script>
+    <script src="/js/createTour.js"></script>
 </body>
 
 </html>

@@ -23,15 +23,15 @@ function removeChilds(htmlElem) {
  * Guarda la info traida del fetch en el local storage
  */
 function saveDataInStorage(data) {
-    localStorage.setItem("tour_data", JSON.stringify(data))
+    localStorage.setItem("show_data", JSON.stringify(data))
 }
 
 /**
- * Buscamos en el local storage un tourData por el id
+ * Buscamos en el local storage un showData por el id
  */
 function getDataById(id) {
-    for (let elem of JSON.parse(localStorage.getItem("tour_data")))
-        if (elem.tour_id === parseInt(id)) return elem;
+    for (let elem of JSON.parse(localStorage.getItem("show_data")))
+        if (elem.show_id === parseInt(id)) return elem;
 }
 
 /**

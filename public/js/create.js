@@ -16,7 +16,7 @@ async function insertEventHandler(event) {
     const date = stringToApiDate(showDate.value)
 
     if (tourShow.value && scenary.value && place.value && date) {
-        const resp = await API.create(date, tourShow.value, scenary.value, place.value)
+        const resp = await API.createShow(date, tourShow.value, scenary.value, place.value)
 
         if (resp.error) {
             alert(resp.message)
