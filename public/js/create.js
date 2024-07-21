@@ -3,6 +3,8 @@ const scenary = document.getElementById("input_scenary")
 const place = document.getElementById("input_place")
 const showDate = document.getElementById("show_date")
 
+const selectCountry = document.getElementById("select_country")
+
 
 function clearInputs() {
     tourShow.value = ""
@@ -33,14 +35,30 @@ async function insertEventHandler(event) {
 }
 
 
-document.getElementById("btn_new_date").addEventListener("click", insertEventHandler)
+document.getElementById("btn_new_show").addEventListener("click", insertEventHandler)
 
 
-addEventListener("load", () => {
+async function loadCountriesData() {
+    const data = await API.cacheCountriesData()
+
+    data.forEach(country => {
+        const option = document.createElement("option")
+        option.value = country.country_id
+        option.textContent = country.country_name
+        selectCountry.appendChild(option)
+    })
+
+    selectCountry.selectedIndex = 0
+}
+
+
+addEventListener("load", async () => {
     const date = new Date()
     const year = date.getFullYear()
     const month = (date.getMonth() + 1).toString().padStart(2, "0")
     const day = date.getDate().toString().padStart(2, "0")
 
     showDate.value = `${year}-${month}-${day}`
+
+    await loadCountriesData()
 })

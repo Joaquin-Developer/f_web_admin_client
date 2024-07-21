@@ -67,4 +67,37 @@ class API {
         return await resp.json()
     }
 
+    static async cacheCountriesData() {
+        let data = sessionStorage.getItem("countries_data")
+
+        if (!data) {
+            data = await (await fetch(`${API.url}/all_countries`)).json()
+            sessionStorage.setItem("countries_data", JSON.stringify(data))
+        }
+
+        return JSON.parse(data)
+    }
+
+    static async getStatesByCountry(country) {
+        const resp = await fetch(`${API.url}/all_states_by_country`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ country })
+        })
+        return await resp.json()
+    }
+
+    static async getCitiesByCountryState(country, state) {
+        const resp = await fetch(`${API.url}/all_cities_by_country_state`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ country, state })
+        })
+        return await resp.json()
+    }
+
 }

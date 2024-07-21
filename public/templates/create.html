@@ -62,8 +62,23 @@
                     <input id="input_scenary" type="text" class="form-control" placeholder="Example: The Forum">
                 </div>
                 <div class="col">
-                    Place:
-                    <input id="input_place" type="text" class="form-control" placeholder="Example: Inglewood, CA, USA">
+                    Country:
+                    <!-- <input id="input_country" type="text" class="form-control"> -->
+                    <select id="select_country" class="form-control"></select>
+                </div>
+                <div class="col">
+                    State:
+                    <select id="select_state" class="form-control">
+                        <option value="">Select...</option>
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                </div>
+                <div class="col">
+                    City:
+                    <select id="select_city" class="form-control">
+                        <option value="">Select...</option>
+                        <!-- Options will be populated dynamically -->
+                    </select>
                 </div>
                 <div class="col">
                     Show date:
@@ -76,7 +91,7 @@
                 </div>
             </div>
             <div class="d-grid gap-2">
-                <button id="btn_new_date" class="btn btn-secondary" type="submit">Guardar</button>
+                <button id="btn_new_show" class="btn btn-secondary" type="submit">Guardar</button>
             </div><br>
         </form>
     </div>
